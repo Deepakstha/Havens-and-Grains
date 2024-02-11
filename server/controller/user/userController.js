@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const db = require("../../model");
 const jwt = require("jsonwebtoken");
 const customErrorHandler = require("../../middleware/customErrorHandler");
+const { createToken } = require("../../services/createToken");
 const User = db.user;
 
 // Signup Controller
@@ -45,6 +46,6 @@ exports.login = async (req, res) => {
     return res.json({ message: "Invalid Email or Password" });
   }
   // create token
-  const token = jwt.sign({ userId: user.id });
+  const token = createToken({ userId: user.id }, "1d");
   return res.json({ token });
 };
