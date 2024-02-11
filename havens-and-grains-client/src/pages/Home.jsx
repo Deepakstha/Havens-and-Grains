@@ -53,9 +53,12 @@ export default function Home() {
     },
   ];
   return (
-    <div>
-      <div className="mb-20 mt-12">
+    <div className="container">
+      <div className="mt-12 mb-20">
         <HeroSection />
+      </div>
+      <div className="bg-primary my-8 text-primary-foreground py-4 text-center text-4xl">
+        Products
       </div>
       <div className="grid grid-cols-3 gap-8">
         {groceryItems.map((item) => (

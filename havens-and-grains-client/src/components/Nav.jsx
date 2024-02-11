@@ -3,8 +3,10 @@ import NavMenu from "./NavMenu";
 
 const Nav = () => {
   return (
-    <div>
+    <div className="flex justify-between bg-gray-200">
+      <div></div>
       <NavMenu />
+      <div></div>
     </div>
   );
 };

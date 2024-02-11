@@ -1,41 +1,38 @@
 import React from "react";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
 import { Link } from "react-router-dom";
 
 const NavMenu = () => {
-  // Assuming 'catagories' is the correct spelling for 'categories'
-  const catagories = ["Category   1", "Category   2"];
+  const categories = ["Category 1", "Category 2"];
 
   return (
-    <NavigationMenu>
-      <NavigationMenuList className="flex justify-between">
-        <NavigationMenuItem>
-          <NavigationMenuLink as={Link} to="/">
+    <div className="text-primary text-lg p-4">
+      <div className="flex gap-4">
+        <div className="flex-none">
+          <Link to="/" className="">
             Home
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink as={Link} to="/products">
+          </Link>
+        </div>
+        <div className="flex-none">
+          <Link to="/products" className="">
             Products
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            {catagories.map((cat, index) => (
-              <NavigationMenuLink key={index}>{cat}</NavigationMenuLink>
+          </Link>
+        </div>
+        <div className="relative inline-block text-lg group">
+          <div className=" cursor-pointer">Categories</div>
+          <div className="hidden min-w-80 z-10 absolute bg-white shadow-lg p-4 group-hover:block">
+            {categories.map((category, index) => (
+              <Link
+                key={index}
+                to={`/${category.toLowerCase().replace(/\s/g, "-")}`}
+                className="block mb-2"
+              >
+                {category}
+              </Link>
             ))}
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
