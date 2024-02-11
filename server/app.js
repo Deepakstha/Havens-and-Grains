@@ -25,7 +25,7 @@ app.use("/uploads", express.static("uploads"));
 //Routes
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Playground rebuild 101");
+  res.send("Welcome to Havens and grains");
 });
 
 app.use(errorHandler);
