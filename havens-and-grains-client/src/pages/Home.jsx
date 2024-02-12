@@ -1,5 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import ProductCard from "@/components/ProductCard";
+import TitleBar from "@/components/TitleBar";
 import { Button } from "@/components/ui/button";
 export default function Home() {
   const groceryItems = [
@@ -57,16 +58,14 @@ export default function Home() {
       <div className="mt-12 mb-20">
         <HeroSection />
       </div>
-      <div className="bg-primary my-8 text-primary-foreground py-4 text-center text-4xl">
-        Products
-      </div>
+      <TitleBar text={"Products"} />
       <div className="grid grid-cols-3 gap-8">
         {groceryItems.map((item) => (
           <ProductCard
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            image={item.image}
+            product={item}
+            addtocart={() => {
+              console.console.log(`Add to cart ${item.title}`);
+            }}
             buy={() => {
               console.log(`Buy ${item.title}`);
             }}
